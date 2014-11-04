@@ -1,0 +1,18 @@
+{
+  "name": "beta.shkshk.ru",
+  "version": "0.0.1",
+  "description": "shkshk.ru website sources",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/shkshk/beta.shkshk.ru"
+  },
+  "author": "Vasily Polovnyov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shkshk/beta.shkshk.ru/issues"
+  }
+}
