@@ -14,5 +14,11 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/shkshk/beta.shkshk.ru/issues"
+  },
+  "dependencies": {
+    "coffee-script": "~1.8.0",
+    "gulp-jade": "~0.9.0",
+    "gulp": "~3.8.10",
+    "gulp-util": "~3.0.1"
   }
 }
