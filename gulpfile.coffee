@@ -11,18 +11,17 @@ connect = require "gulp-connect"
 
 gulp.task "views", ["clean:views"], ->
   gulp.src(app_config.paths.views)
-    .pipe(jade(pretty: true))
+    .pipe(jade(pretty: true).on("error", (err) -> gutil.log(err); @emit('end')))
     .pipe(gulp.dest(app_config.buildpaths.root))
     .pipe(connect.reload())
     .on("errror", gutil.log)
 
 gulp.task "stylesheets", ["clean:stylesheets"], ->
   gulp.src(app_config.paths.main_stylesheet)
-    .pipe(stylus())
+    .pipe(stylus().on("error", (err) -> gutil.log(err); @emit('end')))
     .pipe(autoprefixer())
     .pipe(gulp.dest(app_config.buildpaths.stylesheets))
     .pipe(connect.reload())
-    .on("error", gutil.log)
 
 gulp.task "serve", ["build"], ->
   connect.server(
