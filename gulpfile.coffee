@@ -39,5 +39,10 @@ gulp.task "serve", ["build"], ->
 
 gulp.task "build", ["views", "stylesheets", "images"]
 gulp.task "clean:views", (cb) -> del([app_config.buildpaths.root + "**/*.html"], cb)
-gulp.task "clean:stylesheets", (cb) -> del([app_config.buildpaths.stylesheets], cb)
-gulp.task "clean:images", (cb) -> del([app_config.buildpaths.images], cb)
+gulp.task "clean:stylesheets", (cb) -> del([app_config.buildpaths.stylesheets + "**/*.css"], cb)
+gulp.task "clean:images", (cb) ->
+  paths = [
+    app_config.buildpaths.images + "**/*.png"
+    app_config.buildpaths.images + "**/*.jpg"
+  ]
+  del(paths, cb)
