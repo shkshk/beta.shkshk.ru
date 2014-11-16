@@ -1,0 +1,29 @@
+html
+  overflow-y: scroll
+  font: normal normal 125%/1.6 $serif
+  font-weight: 500
+  font-stretch: normal
+  -webkit-text-size-adjust: none
+
+  @media $tablet
+    &
+      font-size: 16px
+
+  @media $mobile
+    &
+      font-size: 16px
+
+body
+  color: $text-color
+  background: $body-bg-color
+
+a
+  color: $link-color
+  text-decoration: none
+
+  &:visited
+    color: $link-visited-color
+
+  &:hover, &:active
+    color: $link-hover-color
+    text-decoration: none
