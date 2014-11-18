@@ -23,6 +23,10 @@ gulp.task "stylesheets", ["clean:stylesheets"], ->
     .pipe(gulp.dest(app_config.buildpaths.stylesheets))
     .pipe(connect.reload())
 
+gulp.task "images", ["clean:images"], ->
+  gulp.src(app_config.paths.images)
+    .pipe(gulp.dest(app_config.buildpaths.images))
+
 gulp.task "serve", ["build"], ->
   connect.server(
     root: app_config.buildpaths.root
@@ -31,7 +35,14 @@ gulp.task "serve", ["build"], ->
   )
   gulp.watch(app_config.paths.views, ["views"])
   gulp.watch(app_config.paths.stylesheets, ["stylesheets"])
+  gulp.watch(app_config.paths.images, ["images"])
 
-gulp.task "build", ["views", "stylesheets"]
+gulp.task "build", ["views", "stylesheets", "images"]
 gulp.task "clean:views", (cb) -> del([app_config.buildpaths.root + "**/*.html"], cb)
-gulp.task "clean:stylesheets", (cb) -> del([app_config.buildpaths.stylesheets], cb)
+gulp.task "clean:stylesheets", (cb) -> del([app_config.buildpaths.stylesheets + "**/*.css"], cb)
+gulp.task "clean:images", (cb) ->
+  paths = [
+    app_config.buildpaths.images + "**/*.png"
+    app_config.buildpaths.images + "**/*.jpg"
+  ]
+  del(paths, cb)

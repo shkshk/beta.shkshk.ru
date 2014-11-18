@@ -5,6 +5,11 @@ html(lang="ru")
     title СшилаКошка — замечательные чехлы для смартфонов из кожи и фетра
     link(rel="stylesheet", href="/assets/application.css")
   body.layout--application
+    header.global_header
+      a(href="/")
+        img.global_header-logo(src="/assets/logo.png" width="57" height="40")
+      h2.global_header-title
+        block page_title
     div.container
       block contents
 
