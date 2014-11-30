@@ -39,8 +39,19 @@ block contents
     p Котик не грустный, он сложный. Чехлы с ним для пятого айфона мы продаем по 800 рублей.
       | Для других телефонов и с другим логотипом мы шьем чехлы на заказ примерно по той же цене.
 
-    p Укажите ваш адрес электронной почты или телефон,
+    p Укажите ваш адрес электронной почты,
       | чтобы мы с вами связались и уточнили детали заказа.
+
+    form.order-form(accept-charset="UTF-8" action="https://formkeep.com/f/e86a0306057c" method="POST")
+      input(type="hidden" name="utf8" value="✓")
+
+      .order-form_fields
+        fieldset
+          input#order-name(type="text" name="name" placeholder="Имя")
+          input#order-email(type="email" name="email" placeholder="Эл. почта")
+
+      .order-form_submits
+        input(type="submit", value="Заказать")
 
   .payment
     h3 Оплата и доставка
