@@ -27,3 +27,18 @@
 
   input:first-child
     float: left
+
+@media $tablet
+  .order-form_fields, .order-form_submits
+    width: 100%
+
+  .order-form_submits
+    padding-top: 0
+    text-align: right
+
+@media $mobile
+  .order-form_fields fieldset input
+    width: 100%
+
+    &:first-child
+      margin-bottom: .5rem
