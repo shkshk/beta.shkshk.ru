@@ -16,7 +16,7 @@ role :web, "shkshk.ru:22123"
 
 before "deploy:update_code" do
   run_locally "rm -rf build/*"
-  run_locally "gulp build"
+  run_locally "./node_modules/.bin/gulp build"
 end
 
 after "deploy:restart", "deploy:cleanup"
