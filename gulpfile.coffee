@@ -34,8 +34,12 @@ gulp.task "javascripts", ["clean:javascripts"], ->
     .pipe(gulp.dest(app_config.buildpaths.javascripts))
     .pipe(connect.reload())
 
-gulp.task "images", ["clean:images"], ->
+gulp.task "images", ["clean:images", "images:fancybox"], ->
   gulp.src(app_config.paths.images)
+    .pipe(gulp.dest(app_config.buildpaths.images))
+
+gulp.task "images:fancybox", ->
+  gulp.src("bower_components/fancybox/source/**/*.{jpg,png,gif}")
     .pipe(gulp.dest(app_config.buildpaths.images))
 
 gulp.task "serve", ["build"], ->
@@ -54,8 +58,4 @@ gulp.task "clean:views", (cb) -> del([app_config.buildpaths.root + "**/*.html"],
 gulp.task "clean:stylesheets", (cb) -> del([app_config.buildpaths.stylesheets + "**/*.css"], cb)
 gulp.task "clean:javascripts", (cb) -> del([app_config.buildpaths.javascripts + "**/*.js"], cb)
 gulp.task "clean:images", (cb) ->
-  paths = [
-    app_config.buildpaths.images + "**/*.png"
-    app_config.buildpaths.images + "**/*.jpg"
-  ]
-  del(paths, cb)
+  del(app_config.buildpaths.images + "**/*.{png,jpg,gif}", cb)
