@@ -23,7 +23,7 @@ gulp.task "views", ["clean:views"], ->
 
 gulp.task "stylesheets", ["clean:stylesheets"], ->
   gulp.src(app_config.paths.main_stylesheet)
-    .pipe(stylus().on("error", (err) -> gutil.log(err); @emit('end')))
+    .pipe(stylus("include css": true).on("error", (err) -> gutil.log(err); @emit('end')))
     .pipe(autoprefixer())
     .pipe(gulp.dest(app_config.buildpaths.stylesheets))
     .pipe(connect.reload())
@@ -45,6 +45,7 @@ gulp.task "serve", ["build"], ->
     port: app_config.development_port
   )
   gulp.watch(app_config.paths.views, ["views"])
+  gulp.watch(app_config.paths.javascripts, ["javascripts"])
   gulp.watch(app_config.paths.stylesheets, ["stylesheets"])
   gulp.watch(app_config.paths.images, ["images"])
 

@@ -15,10 +15,21 @@
   "bugs": {
     "url": "https://github.com/shkshk/beta.shkshk.ru/issues"
   },
+  "browser": {
+    "fancybox": "./bower_components/fancybox/source/jquery.fancybox.js"
+  },
   "browserify": {
     "transform": [
-      "coffeeify"
+      "coffeeify",
+      "browserify-shim"
     ]
+  },
+  "browserify-shim": {
+    "fancybox": {
+      "depends": [
+        "jquery:jQuery"
+      ]
+    }
   },
   "dependencies": {
     "coffee-script": "~1.8.0",
@@ -33,6 +44,7 @@
     "jquery": "~2.1.1",
     "browserify": "~7.0.0",
     "vinyl-source-stream": "~1.0.0",
-    "coffeeify": "~1.0.0"
+    "coffeeify": "~1.0.0",
+    "browserify-shim": "~3.8.1"
   }
 }

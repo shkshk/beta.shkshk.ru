@@ -8,5 +8,6 @@ shkshk.ru main website sources.
 ```bash
 git clone git@github.com:shkshk/beta.shkshk.ru
 npm install
+bower install
 gulp serve
 ```
