@@ -3,6 +3,7 @@ require "fancybox"
 
 $ ->
   $(".fancybox").fancybox(
+    pixelRatio: 2
     padding: 0
     margin: 15
     arrows: false
