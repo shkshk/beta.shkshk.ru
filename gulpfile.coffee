@@ -34,12 +34,8 @@ gulp.task "javascripts", ["clean:javascripts"], ->
     .pipe(gulp.dest(app_config.buildpaths.assets))
     .pipe(connect.reload())
 
-gulp.task "images", ["clean:images", "images:fancybox"], ->
-  gulp.src(app_config.paths.images)
-    .pipe(gulp.dest(app_config.buildpaths.assets))
-
-gulp.task "images:fancybox", ->
-  gulp.src("bower_components/fancybox/source/**/*.{jpg,png,gif}")
+gulp.task "images", ["clean:images"], ->
+  gulp.src([app_config.paths.images, "bower_components/fancybox/source/**/*.{jpg,png,gif}"])
     .pipe(gulp.dest(app_config.buildpaths.assets))
 
 gulp.task "serve", ["build"], ->
