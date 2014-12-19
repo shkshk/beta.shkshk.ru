@@ -25,22 +25,22 @@ gulp.task "stylesheets", ["clean:stylesheets"], ->
   gulp.src(app_config.paths.main_stylesheet)
     .pipe(stylus("include css": true).on("error", (err) -> gutil.log(err); @emit('end')))
     .pipe(autoprefixer())
-    .pipe(gulp.dest(app_config.buildpaths.stylesheets))
+    .pipe(gulp.dest(app_config.buildpaths.assets))
     .pipe(connect.reload())
 
 gulp.task "javascripts", ["clean:javascripts"], ->
   bundler.bundle()
     .pipe(source("application.js"))
-    .pipe(gulp.dest(app_config.buildpaths.javascripts))
+    .pipe(gulp.dest(app_config.buildpaths.assets))
     .pipe(connect.reload())
 
 gulp.task "images", ["clean:images", "images:fancybox"], ->
   gulp.src(app_config.paths.images)
-    .pipe(gulp.dest(app_config.buildpaths.images))
+    .pipe(gulp.dest(app_config.buildpaths.assets))
 
 gulp.task "images:fancybox", ->
   gulp.src("bower_components/fancybox/source/**/*.{jpg,png,gif}")
-    .pipe(gulp.dest(app_config.buildpaths.images))
+    .pipe(gulp.dest(app_config.buildpaths.assets))
 
 gulp.task "serve", ["build"], ->
   connect.server(
@@ -55,7 +55,7 @@ gulp.task "serve", ["build"], ->
 
 gulp.task "build", ["views", "stylesheets", "javascripts", "images"]
 gulp.task "clean:views", (cb) -> del([app_config.buildpaths.root + "**/*.html"], cb)
-gulp.task "clean:stylesheets", (cb) -> del([app_config.buildpaths.stylesheets + "**/*.css"], cb)
-gulp.task "clean:javascripts", (cb) -> del([app_config.buildpaths.javascripts + "**/*.js"], cb)
+gulp.task "clean:stylesheets", (cb) -> del([app_config.buildpaths.assets + "**/*.css"], cb)
+gulp.task "clean:javascripts", (cb) -> del([app_config.buildpaths.assets + "**/*.js"], cb)
 gulp.task "clean:images", (cb) ->
-  del(app_config.buildpaths.images + "**/*.{png,jpg,gif}", cb)
+  del(app_config.buildpaths.assets + "**/*.{png,jpg,gif}", cb)
