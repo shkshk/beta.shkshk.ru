@@ -3,9 +3,12 @@ gutil = require "gulp-util"
 del = require "del"
 app_config = require "./config/application"
 
+production = -> process.env.BUILD_ENV is "production"
+
 jade = require "gulp-jade"
 stylus = require "gulp-stylus"
 autoprefixer = require "gulp-autoprefixer"
+css_minifier = if production() then require("gulp-csso") else gutil.noop
 
 browserify = require "browserify"
 source = require "vinyl-source-stream"
@@ -25,6 +28,7 @@ gulp.task "stylesheets", ["clean:stylesheets"], ->
   gulp.src(app_config.paths.main_stylesheet)
     .pipe(stylus("include css": true).on("error", (err) -> gutil.log(err); @emit('end')))
     .pipe(autoprefixer())
+    .pipe(css_minifier())
     .pipe(gulp.dest(app_config.buildpaths.assets))
     .pipe(connect.reload())
 
