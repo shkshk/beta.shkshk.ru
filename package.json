@@ -46,6 +46,8 @@
     "vinyl-source-stream": "~1.0.0",
     "coffeeify": "~1.0.0",
     "browserify-shim": "~3.8.1",
-    "gulp-csso": "~0.2.9"
+    "gulp-csso": "~0.2.9",
+    "gulp-uglify": "~1.0.2",
+    "gulp-streamify": "0.0.5"
   }
 }

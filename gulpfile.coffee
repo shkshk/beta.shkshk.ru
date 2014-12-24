@@ -1,5 +1,6 @@
 gulp = require "gulp"
 gutil = require "gulp-util"
+streamify = require "gulp-streamify"
 del = require "del"
 app_config = require "./config/application"
 
@@ -9,6 +10,7 @@ jade = require "gulp-jade"
 stylus = require "gulp-stylus"
 autoprefixer = require "gulp-autoprefixer"
 css_minifier = if production() then require("gulp-csso") else gutil.noop
+js_minifier = if production() then -> streamify(require("gulp-uglify")()) else gutil.noop
 
 browserify = require "browserify"
 source = require "vinyl-source-stream"
@@ -35,6 +37,7 @@ gulp.task "stylesheets", ["clean:stylesheets"], ->
 gulp.task "javascripts", ["clean:javascripts"], ->
   bundler.bundle()
     .pipe(source("application.js"))
+    .pipe(js_minifier())
     .pipe(gulp.dest(app_config.buildpaths.assets))
     .pipe(connect.reload())
 
