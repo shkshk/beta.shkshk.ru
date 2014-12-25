@@ -1,5 +1,5 @@
 $ = require "jquery"
-Application = require "../../app/assets/javascripts/shkshk/application.coffee"
+Application = require "../../app/assets/javascripts/shkshk/application"
 Application.$ = $
 
 describe "Application", ->

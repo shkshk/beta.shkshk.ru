@@ -1,5 +1,5 @@
 $ = require "jquery"
-application = require("./shkshk/application.coffee")
+application = require("./shkshk/application")
 application.$ = $
 
 $ ->
