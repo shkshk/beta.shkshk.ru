@@ -2,7 +2,9 @@ gulp = require "gulp"
 gutil = require "gulp-util"
 streamify = require "gulp-streamify"
 del = require "del"
+_ = require "lodash"
 app_config = require "./config/application"
+karma_config = require('./karma.conf.coffee')
 
 production = -> process.env.BUILD_ENV is "production"
 
@@ -19,6 +21,7 @@ assets_cachebuster = if production() then -> cachebuster.resources() else gutil.
 assets_references = if production() then -> cachebuster.references() else gutil.noop
 
 browserify = require "browserify"
+karma = require("karma").server
 source = require "vinyl-source-stream"
 
 connect = require "gulp-connect"
@@ -64,6 +67,9 @@ gulp.task "serve", ["build"], ->
   gulp.watch(app_config.paths.javascripts, ["javascripts"])
   gulp.watch(app_config.paths.stylesheets, ["stylesheets"])
   gulp.watch(app_config.paths.images, ["images"])
+
+gulp.task "test", (cb) ->
+  karma.start(_.assign({}, karma_config, { singleRun: true }), cb)
 
 gulp.task "build", ["views", "images"]
 gulp.task "clean:views", (cb) -> del([app_config.buildpaths.root + "**/*.html"], cb)
