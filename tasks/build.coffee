@@ -3,13 +3,13 @@ gutil = require "gulp-util"
 plumber = require "gulp-plumber"
 streamify = require "gulp-streamify"
 
-app_config = require "./config/application"
+app_config = require "../config/application"
 production = -> process.env.BUILD_ENV is "production"
 
 jade = require "gulp-jade"
 stylus = require "gulp-stylus"
 autoprefixer = require "gulp-autoprefixer"
-CacheBuster = require("gulp-cachebust")
+CacheBuster = require "gulp-cachebust"
 cachebuster = new CacheBuster()
 
 css_minifier = if production() then require("gulp-csso") else gutil.noop
@@ -20,6 +20,7 @@ assets_references = if production() then -> cachebuster.references() else gutil.
 
 browserify = require "browserify"
 source = require "vinyl-source-stream"
+connect = require "gulp-connect"
 
 bundler = browserify(
   entries: ["./" + app_config.paths.main_javascript]
@@ -58,3 +59,15 @@ gulp.task "images", ["clean:images"], ->
     .pipe(gulp.dest(app_config.buildpaths.assets))
 
 gulp.task "build", ["views", "images"]
+
+gulp.task "serve", ["build"], ->
+  connect.server(
+    root: app_config.buildpaths.root
+    livereload: true
+    port: app_config.development_port
+  )
+  gulp.watch(app_config.paths.views, ["views"])
+  gulp.watch(app_config.paths.javascripts, ["javascripts"])
+  gulp.watch(app_config.paths.stylesheets, ["stylesheets"])
+  gulp.watch(app_config.paths.images, ["images"])
+
