@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+
+set -e
+
+./node_modules/.bin/gulp build
+./node_modules/.bin/gulp test
