@@ -1,5 +1,6 @@
 $ = require "jquery"
 require "fancybox"
+require "jquery-placeholder"
 
 $ ->
   $(".fancybox").fancybox(
@@ -13,3 +14,5 @@ $ ->
     nextEffect: "none"
     prevEffect: "none"
   )
+
+  $("input").placeholder()

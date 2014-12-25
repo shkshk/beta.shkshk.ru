@@ -16,7 +16,8 @@
     "url": "https://github.com/shkshk/beta.shkshk.ru/issues"
   },
   "browser": {
-    "fancybox": "./bower_components/fancybox/source/jquery.fancybox.js"
+    "fancybox": "./bower_components/fancybox/source/jquery.fancybox.js",
+    "jquery-placeholder": "./bower_components/jquery-placeholder/jquery.placeholder.js"
   },
   "browserify": {
     "transform": [
@@ -26,6 +27,11 @@
   },
   "browserify-shim": {
     "fancybox": {
+      "depends": [
+        "jquery:jQuery"
+      ]
+    },
+    "jquery-placeholder": {
       "depends": [
         "jquery:jQuery"
       ]
