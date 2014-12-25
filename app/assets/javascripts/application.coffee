@@ -1,6 +1,6 @@
 $ = require "jquery"
-application = require "shkshk/application"
-application.$ = $
+Application = require "shkshk/application"
+Application.$ = $
 
 $ ->
-  application.run()
+  Application.run()
