@@ -23,7 +23,8 @@ module.exports =
   }
 
   browserify:
-    extensions: ['.coffee']
+    extensions: ['.coffee', '.js']
+    paths: ['./app/assets/javascripts']
 
   # test results reporter to use
   # possible values: 'dots', 'progress'

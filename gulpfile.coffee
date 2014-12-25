@@ -26,7 +26,11 @@ source = require "vinyl-source-stream"
 
 connect = require "gulp-connect"
 
-bundler = browserify(entries: ["./" + app_config.paths.main_javascript], extensions: [".coffee", ".js"])
+bundler = browserify(
+  entries: ["./" + app_config.paths.main_javascript]
+  extensions: [".coffee", ".js"]
+  paths: ["./app/assets/javascripts"]
+)
 
 gulp.task "views", ["clean:views", "stylesheets", "javascripts"], ->
   gulp.src(app_config.paths.views)
