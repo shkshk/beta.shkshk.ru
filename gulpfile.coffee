@@ -4,7 +4,7 @@ streamify = require "gulp-streamify"
 del = require "del"
 _ = require "lodash"
 app_config = require "./config/application"
-karma_config = require('./karma.conf.coffee')
+karma_config = require "./karma.conf.coffee"
 
 production = -> process.env.BUILD_ENV is "production"
 
@@ -30,7 +30,7 @@ bundler = browserify(entries: ["./" + app_config.paths.main_javascript], extenst
 
 gulp.task "views", ["clean:views", "stylesheets", "javascripts"], ->
   gulp.src(app_config.paths.views)
-    .pipe(jade(pretty: true).on("error", (err) -> gutil.log(err); @emit('end')))
+    .pipe(jade(pretty: true).on("error", (err) -> gutil.log(err); @emit("end")))
     .pipe(assets_references())
     .pipe(gulp.dest(app_config.buildpaths.root))
     .pipe(connect.reload())
@@ -38,7 +38,7 @@ gulp.task "views", ["clean:views", "stylesheets", "javascripts"], ->
 
 gulp.task "stylesheets", ["clean:stylesheets"], ->
   gulp.src(app_config.paths.main_stylesheet)
-    .pipe(stylus("include css": true).on("error", (err) -> gutil.log(err); @emit('end')))
+    .pipe(stylus("include css": true).on("error", (err) -> gutil.log(err); @emit("end")))
     .pipe(autoprefixer())
     .pipe(css_minifier())
     .pipe(assets_cachebuster())
@@ -47,6 +47,7 @@ gulp.task "stylesheets", ["clean:stylesheets"], ->
 
 gulp.task "javascripts", ["clean:javascripts"], ->
   bundler.bundle()
+    .on("error", (err) -> gutil.log(err); @emit("end"))
     .pipe(source("application.js"))
     .pipe(js_minifier())
     .pipe(assets_cachebuster())
