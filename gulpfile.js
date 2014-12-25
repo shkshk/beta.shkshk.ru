@@ -1,2 +1,3 @@
 require('coffee-script/register');
-require('./gulpfile.coffee');
+var requireDir = require('require-dir');
+requireDir("./tasks");

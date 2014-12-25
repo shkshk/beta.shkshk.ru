@@ -2,17 +2,14 @@ gulp = require "gulp"
 gutil = require "gulp-util"
 plumber = require "gulp-plumber"
 streamify = require "gulp-streamify"
-del = require "del"
-_ = require "lodash"
-app_config = require "./config/application"
-karma_config = require "./karma.conf.coffee"
 
+app_config = require "../config/application"
 production = -> process.env.BUILD_ENV is "production"
 
 jade = require "gulp-jade"
 stylus = require "gulp-stylus"
 autoprefixer = require "gulp-autoprefixer"
-CacheBuster = require("gulp-cachebust")
+CacheBuster = require "gulp-cachebust"
 cachebuster = new CacheBuster()
 
 css_minifier = if production() then require("gulp-csso") else gutil.noop
@@ -22,9 +19,7 @@ assets_cachebuster = if production() then -> cachebuster.resources() else gutil.
 assets_references = if production() then -> cachebuster.references() else gutil.noop
 
 browserify = require "browserify"
-karma = require("karma").server
 source = require "vinyl-source-stream"
-
 connect = require "gulp-connect"
 
 bundler = browserify(
@@ -63,6 +58,8 @@ gulp.task "images", ["clean:images"], ->
   gulp.src([app_config.paths.images, "bower_components/fancybox/source/**/*.{jpg,png,gif}"])
     .pipe(gulp.dest(app_config.buildpaths.assets))
 
+gulp.task "build", ["views", "images"]
+
 gulp.task "serve", ["build"], ->
   connect.server(
     root: app_config.buildpaths.root
@@ -74,12 +71,3 @@ gulp.task "serve", ["build"], ->
   gulp.watch(app_config.paths.stylesheets, ["stylesheets"])
   gulp.watch(app_config.paths.images, ["images"])
 
-gulp.task "test", (cb) ->
-  karma.start(_.assign({}, karma_config, { singleRun: true }), cb)
-
-gulp.task "build", ["views", "images"]
-gulp.task "clean:views", (cb) -> del([app_config.buildpaths.root + "**/*.html"], cb)
-gulp.task "clean:stylesheets", (cb) -> del([app_config.buildpaths.assets + "**/*.css"], cb)
-gulp.task "clean:javascripts", (cb) -> del([app_config.buildpaths.assets + "**/*.js"], cb)
-gulp.task "clean:images", (cb) ->
-  del(app_config.buildpaths.assets + "**/*.{png,jpg,gif}", cb)
