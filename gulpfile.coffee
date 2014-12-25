@@ -1,5 +1,6 @@
 gulp = require "gulp"
 gutil = require "gulp-util"
+plumber = require "gulp-plumber"
 streamify = require "gulp-streamify"
 del = require "del"
 _ = require "lodash"
@@ -34,15 +35,16 @@ bundler = browserify(
 
 gulp.task "views", ["clean:views", "stylesheets", "javascripts"], ->
   gulp.src(app_config.paths.views)
-    .pipe(jade(pretty: true).on("error", (err) -> gutil.log(err); @emit("end")))
+    .pipe(plumber())
+    .pipe(jade(pretty: true))
     .pipe(assets_references())
     .pipe(gulp.dest(app_config.buildpaths.root))
     .pipe(connect.reload())
-    .on("errror", gutil.log)
 
 gulp.task "stylesheets", ["clean:stylesheets"], ->
   gulp.src(app_config.paths.main_stylesheet)
-    .pipe(stylus("include css": true).on("error", (err) -> gutil.log(err); @emit("end")))
+    .pipe(plumber())
+    .pipe(stylus("include css": true))
     .pipe(autoprefixer())
     .pipe(css_minifier())
     .pipe(assets_cachebuster())
@@ -51,7 +53,6 @@ gulp.task "stylesheets", ["clean:stylesheets"], ->
 
 gulp.task "javascripts", ["clean:javascripts"], ->
   bundler.bundle()
-    .on("error", (err) -> gutil.log(err); @emit("end"))
     .pipe(source("application.js"))
     .pipe(js_minifier())
     .pipe(assets_cachebuster())
