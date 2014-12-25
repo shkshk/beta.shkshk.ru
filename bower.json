@@ -15,6 +15,7 @@
     "tests"
   ],
   "dependencies": {
-    "fancybox": "~2.1.5"
+    "fancybox": "~2.1.5",
+    "jquery-placeholder": "~2.0.9"
   }
 }
