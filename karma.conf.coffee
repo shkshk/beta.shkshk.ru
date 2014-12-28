@@ -8,7 +8,7 @@ module.exports =
 
   # list of files / patterns to load in the browser
   files: [
-    'test/**/*Spec.coffee'
+    'test/**/*_spec.coffee'
   ]
 
   # list of files to exclude
