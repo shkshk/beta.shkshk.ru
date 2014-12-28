@@ -4,7 +4,7 @@ plumber = require "gulp-plumber"
 streamify = require "gulp-streamify"
 
 app_config = require "../config/application"
-production = -> process.env.BUILD_ENV is "production"
+production = -> process.env.NODE_ENV is "production"
 
 jade = require "gulp-jade"
 stylus = require "gulp-stylus"
