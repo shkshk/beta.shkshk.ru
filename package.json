@@ -66,6 +66,7 @@
     "lodash": "~2.4.1",
     "karma-jasmine-jquery": "~0.1.1",
     "gulp-plumber": "~0.6.6",
-    "require-dir": "~0.1.0"
+    "require-dir": "~0.1.0",
+    "backbone": "~1.1.2"
   }
 }
