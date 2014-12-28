@@ -9,7 +9,7 @@ html(lang="ru")
     meta(name="viewport" content="width=device-width, initial-scale=1.0, ya-title=fade, ya-dock=fade")
     meta(name="theme-color" content="#ffffff")
   body.layout--application
-    - if (process.env.BUILD_ENV == "production")
+    - if (process.env.NODE_ENV == "production")
       script.
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
