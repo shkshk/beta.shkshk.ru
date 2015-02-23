@@ -22,7 +22,7 @@ input {
   }
 }
 
-$submit-shadow-color: darken($link-color, 20%);
+$submit-shadow-color: color($(link-color) blackness(+20%));
 
 input[type="submit"] {
   -webkit-appearance: none;
