@@ -10,9 +10,11 @@ autoprefixer = require "autoprefixer-core"
 postcss_vars = require "postcss-simple-vars"
 postcss_import = require "postcss-import"
 postcss_nested = require "postcss-nested"
+postcss_mixins = require "postcss-mixins"
 
 preprocessors = [
   postcss_import(from: app_config.paths.main_stylesheet),
+  postcss_mixins,
   postcss_vars,
   postcss_nested,
   autoprefixer

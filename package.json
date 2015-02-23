@@ -70,6 +70,7 @@
     "postcss-simple-vars": "~0.2.3",
     "postcss-import": "~5.0.3",
     "autoprefixer-core": "~5.1.7",
-    "postcss-nested": "~0.2.1"
+    "postcss-nested": "~0.2.1",
+    "postcss-mixins": "~0.1.1"
   }
 }

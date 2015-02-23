@@ -1,8 +1,8 @@
-info-block() {
+@define-mixin info-block {
   margin-bottom: $vertical-blocks-spacing;
 }
 
-clearfix() {
+@define-mixin clearfix {
   &:before, &:after {
     content: "";
     display: table;
