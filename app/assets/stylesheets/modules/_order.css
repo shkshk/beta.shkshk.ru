@@ -36,7 +36,7 @@
   }
 }
 
-@media $tablet {
+@media $(tablet) {
   .order-form_fields, .order-form_submits {
     width: 100%;
   }
@@ -47,7 +47,7 @@
   }
 }
 
-@media $mobile {
+@media $(mobile) {
   .order-form_fields fieldset input {
     width: 100%;
 
