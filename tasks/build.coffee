@@ -23,7 +23,6 @@ preprocessors = [
 ]
 
 jade = require "gulp-jade"
-stylus = require "gulp-stylus"
 postcss = require "gulp-postcss"
 autoprefixer = require "gulp-autoprefixer"
 CacheBuster = require "gulp-cachebust"
