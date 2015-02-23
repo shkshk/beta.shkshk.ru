@@ -4,7 +4,7 @@ $serif: PT Serif, Georgia, Times New Roman, Times, serif;
 $text-color: rgba(0, 0, 0, .85);
 $light-text-color: #fcfcfc;
 $body-bg-color: #fff;
-$footer-color: lighten($text-color, 10%);
+$footer-color: color(rgba(0, 0, 0, .85) lightness(10%));
 
 $link-color: #03709a;
 $link-hover-color: #c33012;

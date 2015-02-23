@@ -7,16 +7,18 @@ app_config = require "../config/application"
 production = -> process.env.NODE_ENV is "production"
 
 autoprefixer = require "autoprefixer-core"
-postcss_vars = require "postcss-simple-vars"
-postcss_import = require "postcss-import"
-postcss_nested = require "postcss-nested"
-postcss_mixins = require "postcss-mixins"
+postcssVars = require "postcss-simple-vars"
+postcssImport = require "postcss-import"
+postcssNested = require "postcss-nested"
+postcssMixins = require "postcss-mixins"
+postcssColors = require "postcss-color-function"
 
 preprocessors = [
-  postcss_import(from: app_config.paths.main_stylesheet),
-  postcss_mixins,
-  postcss_nested,
-  postcss_vars,
+  postcssImport(from: app_config.paths.main_stylesheet),
+  postcssMixins,
+  postcssNested,
+  postcssVars,
+  postcssColors(),
   autoprefixer
 ]
 
