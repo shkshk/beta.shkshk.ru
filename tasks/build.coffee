@@ -4,7 +4,7 @@ plumber = require "gulp-plumber"
 streamify = require "gulp-streamify"
 
 app_config = require "../config/application"
-preprocessors = require "../config/postcss"
+postprocessors = require "../config/postcss"
 
 production = -> process.env.NODE_ENV is "production"
 
@@ -40,7 +40,7 @@ gulp.task "views", ["clean:views", "stylesheets", "javascripts"], ->
 gulp.task "stylesheets", ["clean:stylesheets"], ->
   gulp.src(app_config.paths.main_stylesheet)
     .pipe(plumber())
-    .pipe(postcss(preprocessors))
+    .pipe(postcss(postprocessors))
     .pipe(css_minifier())
     .pipe(assets_cachebuster())
     .pipe(gulp.dest(app_config.buildpaths.assets))
