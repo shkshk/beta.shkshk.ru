@@ -15,8 +15,8 @@ postcss_mixins = require "postcss-mixins"
 preprocessors = [
   postcss_import(from: app_config.paths.main_stylesheet),
   postcss_mixins,
-  postcss_vars,
   postcss_nested,
+  postcss_vars,
   autoprefixer
 ]
 
