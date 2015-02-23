@@ -9,10 +9,12 @@ production = -> process.env.NODE_ENV is "production"
 autoprefixer = require "autoprefixer-core"
 postcss_vars = require "postcss-simple-vars"
 postcss_import = require "postcss-import"
+postcss_nested = require "postcss-nested"
 
 preprocessors = [
   postcss_import(from: app_config.paths.main_stylesheet),
   postcss_vars,
+  postcss_nested,
   autoprefixer
 ]
 
