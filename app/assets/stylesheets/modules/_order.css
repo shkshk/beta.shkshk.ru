@@ -1,12 +1,13 @@
 .order {
-  info-block();
+  @mixin info-block;
 }
 
 .order-form {
-  clearfix();
+  @mixin clearfix;
+
   margin-top: -.7rem;
   border-radius: 4px;
-  background: lighten($text-color, 95%);
+  background: color($text-color l(95%));
 }
 
 .order-form_fields, .order-form_submits {
@@ -21,7 +22,7 @@
 }
 
 .order-form_fields fieldset {
-  clearfix();
+  @mixin clearfix;
 
   input {
     display: block;
@@ -35,7 +36,7 @@
   }
 }
 
-@media $tablet {
+@media $(tablet) {
   .order-form_fields, .order-form_submits {
     width: 100%;
   }
@@ -46,7 +47,7 @@
   }
 }
 
-@media $mobile {
+@media $(mobile) {
   .order-form_fields fieldset input {
     width: 100%;
 
