@@ -1,44 +1,57 @@
-.order
-  info-block()
+.order {
+  info-block();
+}
 
-.order-form
-  clearfix()
-  margin-top: -.7rem
-  border-radius: 4px
-  background: lighten($text-color, 95%)
+.order-form {
+  clearfix();
+  margin-top: -.7rem;
+  border-radius: 4px;
+  background: lighten($text-color, 95%);
+}
 
-.order-form_fields, .order-form_submits
-  float: left
-  box-sizing: border-box
-  width: 50%
-  padding: .5rem
+.order-form_fields, .order-form_submits {
+  float: left;
+  box-sizing: border-box;
+  width: 50%;
+  padding: .5rem;
 
-  input
-    margin: 0
+  input {
+    margin: 0;
+  }
+}
 
-.order-form_fields fieldset
-  clearfix()
+.order-form_fields fieldset {
+  clearfix();
 
-  input
-    display: block
-    box-sizing: border-box
-    float: right
-    width: 48%
+  input {
+    display: block;
+    box-sizing: border-box;
+    float: right;
+    width: 48%;
+  }
 
-  input:first-child
-    float: left
+  input:first-child {
+    float: left;
+  }
+}
 
-@media $tablet
-  .order-form_fields, .order-form_submits
-    width: 100%
+@media $tablet {
+  .order-form_fields, .order-form_submits {
+    width: 100%;
+  }
 
-  .order-form_submits
-    padding-top: 0
-    text-align: right
+  .order-form_submits {
+    padding-top: 0;
+    text-align: right;
+  }
+}
 
-@media $mobile
-  .order-form_fields fieldset input
-    width: 100%
+@media $mobile {
+  .order-form_fields fieldset input {
+    width: 100%;
 
-    &:first-child
-      margin-bottom: .5rem
+    &:first-child {
+      margin-bottom: .5rem;
+    }
+  }
+}

@@ -1,53 +1,62 @@
-form
-  font-family: $helvetica
+form {
+  font-family: $helvetica;
+}
 
-input, label
-  font-size: .8rem
-  padding: 4px 6px
-  color: $text-color
+input, label {
+  font-size: 0.8rem;
+  padding: 4px 6px;
+  color: $text-color;
+}
 
-label
-  padding-left: 0
-  padding-right: 0
+label {
+  padding-left: 0;
+  padding-right: 0;
+}
 
-input
-  display: inline-block
-  padding: .5625rem .5rem .5rem .5rem
+input {
+  display: inline-block;
+  padding: 0.5625rem 0.5rem 0.5rem 0.5rem;
 
-  &.placeholder
-    color: #666
+  &.placeholder {
+    color: #666;
+  }
+}
 
 $submit-shadow-color = darken($link-color, 20%);
 
-input[type="submit"]
-  -webkit-appearance: none
-  appearance: none
-  position: relative
-  display: inline-block
+input[type="submit"] {
+  -webkit-appearance: none;
+  appearance: none;
+  position: relative;
+  display: inline-block;
 
-  padding: .5625rem 1rem .5rem 1rem
+  padding: .5625rem 1rem .5rem 1rem;
 
-  font-family: $helvetica
-  text-align: center
-  color: #fff
-  cursor: pointer
-  background: $link-color
-  border: 1px solid $link-color
-  border-radius: 3px
+  font-family: $helvetica;
+  text-align: center;
+  color: #fff;
+  cursor: pointer;
+  background: $link-color;
+  border: 1px solid $link-color;
+  border-radius: 3px;
 
-  box-shadow: 0 3px 0 0 $submit-shadow-color
+  box-shadow: 0 3px 0 0 $submit-shadow-color;
 
-  &:hover, &:active
-    transition: background-color .3s, border-color .3s
+  &:hover, &:active {
+    transition: background-color .3s, border-color .3s;
 
-    background: $submit-shadow-color
-    border-color: $submit-shadow-color
+    background: $submit-shadow-color;
+    border-color: $submit-shadow-color;
+  }
 
-  &:active
-    top: 2px
-    box-shadow: 0 1px 0 0 $submit-shadow-color
+  &:active {
+    top: 2px;
+    box-shadow: 0 1px 0 0 $submit-shadow-color;
+  }
 
-  &:disabled
-    cursor: not-allowed
-    opacity: .5
-    box-shadow: 0 3px 0 0 $link-color
+  &:disabled {
+    cursor: not-allowed;
+    opacity: .5;
+    box-shadow: 0 3px 0 0 $link-color;
+  }
+}
