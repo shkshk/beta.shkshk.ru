@@ -4,23 +4,9 @@ plumber = require "gulp-plumber"
 streamify = require "gulp-streamify"
 
 app_config = require "../config/application"
+preprocessors = require "../config/postcss"
+
 production = -> process.env.NODE_ENV is "production"
-
-autoprefixer = require "autoprefixer-core"
-postcssVars = require "postcss-simple-vars"
-postcssImport = require "postcss-import"
-postcssNested = require "postcss-nested"
-postcssMixins = require "postcss-mixins"
-postcssColors = require "postcss-color-function"
-
-preprocessors = [
-  postcssImport(from: app_config.paths.main_stylesheet),
-  postcssMixins,
-  postcssNested,
-  postcssVars,
-  postcssColors(),
-  autoprefixer
-]
 
 jade = require "gulp-jade"
 postcss = require "gulp-postcss"
