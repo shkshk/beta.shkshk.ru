@@ -6,8 +6,19 @@ streamify = require "gulp-streamify"
 app_config = require "../config/application"
 production = -> process.env.NODE_ENV is "production"
 
+autoprefixer = require "autoprefixer-core"
+postcss_vars = require "postcss-simple-vars"
+postcss_import = require "postcss-import"
+
+preprocessors = [
+  postcss_import(from: app_config.paths.main_stylesheet),
+  postcss_vars,
+  autoprefixer
+]
+
 jade = require "gulp-jade"
 stylus = require "gulp-stylus"
+postcss = require "gulp-postcss"
 autoprefixer = require "gulp-autoprefixer"
 CacheBuster = require "gulp-cachebust"
 cachebuster = new CacheBuster()
@@ -39,8 +50,7 @@ gulp.task "views", ["clean:views", "stylesheets", "javascripts"], ->
 gulp.task "stylesheets", ["clean:stylesheets"], ->
   gulp.src(app_config.paths.main_stylesheet)
     .pipe(plumber())
-    .pipe(stylus("include css": true))
-    .pipe(autoprefixer())
+    .pipe(postcss(preprocessors))
     .pipe(css_minifier())
     .pipe(assets_cachebuster())
     .pipe(gulp.dest(app_config.buildpaths.assets))

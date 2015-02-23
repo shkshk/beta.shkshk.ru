@@ -1,9 +1,9 @@
 .order {
-  info-block();
+  @include info-block();
 }
 
 .order-form {
-  clearfix();
+  @include clearfix();
   margin-top: -.7rem;
   border-radius: 4px;
   background: lighten($text-color, 95%);
@@ -21,7 +21,7 @@
 }
 
 .order-form_fields fieldset {
-  clearfix();
+  @include clearfix();
 
   input {
     display: block;
