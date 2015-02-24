@@ -67,7 +67,7 @@
     "require-dir": "~0.1.0",
     "backbone": "~1.1.2",
     "gulp-postcss": "~4.0.3",
-    "postcss-simple-vars": "~0.2.3",
+    "postcss-simple-vars": "~0.2.4",
     "postcss-import": "~5.0.3",
     "autoprefixer-core": "~5.1.7",
     "postcss-nested": "~0.2.1",
