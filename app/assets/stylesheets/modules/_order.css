@@ -27,11 +27,6 @@
   input {
     display: block;
     box-sizing: border-box;
-    float: right;
     width: 100%;
-  }
-
-  input:first-child {
-    float: left;
   }
 }
