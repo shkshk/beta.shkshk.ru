@@ -14,6 +14,8 @@ label {
 }
 
 input {
+  border-radius: $global-radius;
+  border: 2px solid #ddd;
   display: inline-block;
   padding: .5625rem .5rem .5rem .5rem;
 
@@ -38,7 +40,7 @@ input[type="submit"] {
   cursor: pointer;
   background: $link-color;
   border: 1px solid $link-color;
-  border-radius: 3px;
+  border-radius: $global-radius;
 
   box-shadow: 0 3px 0 0 $submit-shadow-color;
 

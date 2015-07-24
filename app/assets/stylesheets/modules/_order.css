@@ -6,7 +6,7 @@
   @mixin clearfix;
 
   margin-top: -.7rem;
-  border-radius: 4px;
+  border-radius: $global-radius;
   background: color($text-color l(95%));
 }
 
@@ -19,6 +19,10 @@
   input {
     margin: 0;
   }
+}
+
+.order-form_submits {
+  padding-left: 0;
 }
 
 .order-form_fields fieldset {
