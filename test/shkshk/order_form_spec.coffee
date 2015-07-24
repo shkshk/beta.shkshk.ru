@@ -5,7 +5,6 @@ describe "OrderForm", ->
   beforeEach ->
     setFixtures """
       <form id="foo">
-        <input type="text" name="name">
         <input type="text" name="email">
         <input type="submit">
       </form>

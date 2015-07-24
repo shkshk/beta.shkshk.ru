@@ -1,9 +1,12 @@
-Backbone = require "backbone"
 $ = require "jquery"
-Backbone.$ = $
 
-module.exports = class OrderForm extends Backbone.View
-  initialize: ->
+module.exports = class OrderForm
+  constructor: (opts) ->
+    @$el = $(opts.el)
+
+    @_initialize()
+
+  _initialize: ->
     @_disableSubmitButton()
     @_runPeriodicChecks()
 
@@ -16,7 +19,7 @@ module.exports = class OrderForm extends Backbone.View
     , 1000)
 
   _contactDataIsNotEmtpy: ->
-    $.trim(@$el.find("input[name=name]").val()).length and $.trim(@$el.find("input[name=email]").val()).length
+    $.trim(@$el.find("input[name=email]").val()).length
 
   _disableSubmitButton: ->
     @$el.find("input:submit").attr("disabled", true)
