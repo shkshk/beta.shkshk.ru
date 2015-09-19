@@ -1,6 +1,6 @@
 app_config = require "./application"
 
-autoprefixer = require "autoprefixer-core"
+autoprefixer = require "autoprefixer"
 postcssVars = require "postcss-simple-vars"
 postcssImport = require "postcss-import"
 postcssNested = require "postcss-nested"
