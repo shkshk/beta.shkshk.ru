@@ -2,3 +2,5 @@
 
 @import "core/index";
 @import "modules/index";
+
+@import "../../../node_modules/fancybox/dist/css/jquery.fancybox.css";

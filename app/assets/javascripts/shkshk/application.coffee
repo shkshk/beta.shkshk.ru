@@ -1,9 +1,9 @@
-# require "fancybox"
+require("fancybox")($)
 OrderForm = require "shkshk/order_form"
 
 module.exports = class Application
   @run: ->
-    @$(".fancybox").fancybox(
+    $(".fancybox").fancybox(
       pixelRatio: 2
       padding: 0
       margin: 15

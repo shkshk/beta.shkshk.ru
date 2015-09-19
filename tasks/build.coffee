@@ -48,6 +48,7 @@ gulp.task "stylesheets", ["clean:stylesheets"], ->
 
 gulp.task "javascripts", ["clean:javascripts"], ->
   bundler.bundle()
+    .on("error", (err) -> gutil.log(err.message); @emit("end"))
     .pipe(source("application.js"))
     .pipe(js_minifier())
     .pipe(assets_cachebuster())
@@ -55,7 +56,7 @@ gulp.task "javascripts", ["clean:javascripts"], ->
     .pipe(connect.reload())
 
 gulp.task "images", ["clean:images"], ->
-  gulp.src([app_config.paths.images])
+  gulp.src(app_config.paths.images)
     .pipe(gulp.dest(app_config.buildpaths.assets))
 
 gulp.task "build", ["views", "images", "stylesheets", "javascripts"]

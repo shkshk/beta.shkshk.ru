@@ -1,5 +1,3 @@
-$ = require "jquery"
-
 module.exports = class OrderForm
   constructor: (opts) ->
     @$el = $(opts.el)
