@@ -6,7 +6,20 @@
 
   &-logo {
     position: absolute;
-    top: 1.5rem;
+    display: inline-block;
+    top: 1rem;
+    height: 57px;
+    padding-left: 65px;
+
+    background: url(../assets/logo.png) left center no-repeat;
+    background-size: 57px 40px;
+
+    line-height: 57px;
+    font-size: 80%;
+
+    &:visited {
+      color: $text-color;
+    }
   }
 
   &-title {
