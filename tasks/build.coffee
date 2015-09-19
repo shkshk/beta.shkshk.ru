@@ -29,7 +29,7 @@ bundler = browserify(
   paths: ["./app/assets/javascripts"]
 )
 
-gulp.task "views", ["clean:views", "stylesheets", "javascripts"], ->
+gulp.task "views", ["clean:views"], ->
   gulp.src(app_config.paths.views)
     .pipe(plumber())
     .pipe(jade(pretty: true))
@@ -55,10 +55,10 @@ gulp.task "javascripts", ["clean:javascripts"], ->
     .pipe(connect.reload())
 
 gulp.task "images", ["clean:images"], ->
-  gulp.src([app_config.paths.images, "bower_components/fancybox/source/**/*.{jpg,png,gif}"])
+  gulp.src([app_config.paths.images])
     .pipe(gulp.dest(app_config.buildpaths.assets))
 
-gulp.task "build", ["views", "images"]
+gulp.task "build", ["views", "images", "stylesheets", "javascripts"]
 
 gulp.task "serve", ["build"], ->
   connect.server(

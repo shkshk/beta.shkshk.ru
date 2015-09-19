@@ -1,5 +1,4 @@
-require "fancybox"
-require "jquery-placeholder"
+# require "fancybox"
 OrderForm = require "shkshk/order_form"
 
 module.exports = class Application
@@ -15,7 +14,5 @@ module.exports = class Application
       nextEffect: "none"
       prevEffect: "none"
     )
-
-    @$("input").placeholder()
 
     new OrderForm(el: "#order-form")
