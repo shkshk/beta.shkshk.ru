@@ -10,6 +10,7 @@ describe "OrderForm", ->
       </form>
     """
 
+    jasmine.clock().uninstall()
     jasmine.clock().install()
 
     @orderForm = new OrderForm(el: "#foo")
