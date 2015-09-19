@@ -1,4 +1,4 @@
-$ = require "jquery"
+window.$ = $ = require "jquery"
 OrderForm = require "shkshk/order_form"
 
 describe "OrderForm", ->

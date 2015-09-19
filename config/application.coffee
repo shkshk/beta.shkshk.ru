@@ -2,7 +2,10 @@ module.exports =
   paths:
     app: "app"
     views: "app/views/**/*.jade"
-    images: "app/assets/images/**/*"
+    images: [
+      "app/assets/images/**/*"
+      "node_modules/fancybox/dist/img/*"
+    ]
     stylesheets: "app/assets/stylesheets/**/*.css"
     javascripts: "app/assets/javascripts/**/*.coffee"
     main_stylesheet: "app/assets/stylesheets/application.css"
