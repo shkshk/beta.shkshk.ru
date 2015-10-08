@@ -29,7 +29,7 @@ bundler = browserify(
   paths: ["./app/assets/javascripts"]
 )
 
-gulp.task "views", ["clean:views"], ->
+gulp.task "views", ["clean:views", "stylesheets", "javascripts"], ->
   gulp.src(app_config.paths.views)
     .pipe(plumber())
     .pipe(jade(pretty: true))
@@ -59,7 +59,7 @@ gulp.task "images", ["clean:images"], ->
   gulp.src(app_config.paths.images)
     .pipe(gulp.dest(app_config.buildpaths.assets))
 
-gulp.task "build", ["views", "images", "stylesheets", "javascripts"]
+gulp.task "build", ["views", "images"]
 
 gulp.task "serve", ["build"], ->
   connect.server(
