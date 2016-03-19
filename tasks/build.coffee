@@ -3,6 +3,8 @@ gutil = require "gulp-util"
 plumber = require "gulp-plumber"
 streamify = require "gulp-streamify"
 
+browserSync = require("browser-sync").create()
+
 appConfig = require "../config/application"
 postprocessors = require "../config/postcss"
 
@@ -21,7 +23,6 @@ assetsReferences = if production() then -> cachebuster.references() else gutil.n
 
 browserify = require "browserify"
 source = require "vinyl-source-stream"
-connect = require "gulp-connect"
 
 bundler = browserify(
   entries: ["./" + appConfig.paths.mainJavascript]
@@ -29,13 +30,12 @@ bundler = browserify(
   paths: ["./app/assets/javascripts"]
 )
 
-gulp.task "views", ["clean:views", "stylesheets", "javascripts"], ->
+gulp.task "views", ["clean:views"], ->
   gulp.src(appConfig.paths.views)
     .pipe(plumber())
     .pipe(jade(pretty: true))
     .pipe(assetsReferences())
     .pipe(gulp.dest(appConfig.buildpaths.root))
-    .pipe(connect.reload())
 
 gulp.task "stylesheets", ["clean:stylesheets"], ->
   gulp.src(appConfig.paths.mainStylesheet)
@@ -44,7 +44,7 @@ gulp.task "stylesheets", ["clean:stylesheets"], ->
     .pipe(cssMinifier())
     .pipe(assetsCachebuster())
     .pipe(gulp.dest(appConfig.buildpaths.assets))
-    .pipe(connect.reload())
+    .pipe(browserSync.stream(match: "**/*.css"))
 
 gulp.task "javascripts", ["clean:javascripts"], ->
   bundler.bundle()
@@ -53,7 +53,6 @@ gulp.task "javascripts", ["clean:javascripts"], ->
     .pipe(jsMinifier())
     .pipe(assetsCachebuster())
     .pipe(gulp.dest(appConfig.buildpaths.assets))
-    .pipe(connect.reload())
 
 gulp.task "images", ["clean:images"], ->
   gulp.src(appConfig.paths.images)
@@ -61,14 +60,20 @@ gulp.task "images", ["clean:images"], ->
 
 gulp.task "build", ["views", "images"]
 
-gulp.task "serve", ["build"], ->
-  connect.server(
-    root: appConfig.buildpaths.root
-    livereload: true
-    port: appConfig.developmentPort
-  )
-  gulp.watch(appConfig.paths.views, ["views"])
-  gulp.watch(appConfig.paths.javascripts, ["javascripts"])
-  gulp.watch(appConfig.paths.stylesheets, ["stylesheets"])
-  gulp.watch(appConfig.paths.images, ["images"])
+gulp.task "watch:javascripts", ["javascripts"], -> browserSync.reload()
+gulp.task "watch:views", ["views"], -> browserSync.reload()
+gulp.task "watch:images", ["images"], -> browserSync.reload()
 
+gulp.task "serve", ["build"], ->
+  browserSync.init(
+    ghostMode: false
+    notify: false
+    server:
+      baseDir: appConfig.buildpaths.root
+      reloadDelay: 500
+  )
+
+  gulp.watch(appConfig.paths.views, ["watch:views"])
+  gulp.watch(appConfig.paths.javascripts, ["watch:javascripts"])
+  gulp.watch(appConfig.paths.images, ["watch:images"])
+  gulp.watch(appConfig.paths.stylesheets, ["stylesheets"])

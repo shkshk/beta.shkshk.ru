@@ -13,4 +13,3 @@ module.exports =
   buildpaths:
     root: "build"
     assets: "build/assets"
-  developmentPort: 4000
