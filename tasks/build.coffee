@@ -2,6 +2,7 @@ gulp = require "gulp"
 gutil = require "gulp-util"
 plumber = require "gulp-plumber"
 streamify = require "gulp-streamify"
+sync = require("gulp-sync")(gulp).sync
 
 browserSync = require("browser-sync").create()
 
@@ -58,7 +59,7 @@ gulp.task "images", ["clean:images"], ->
   gulp.src(appConfig.paths.images)
     .pipe(gulp.dest(appConfig.buildpaths.assets))
 
-gulp.task "build", ["views", "images"]
+gulp.task "build", sync(["stylesheets", "javascripts", "images", "views"])
 
 gulp.task "watch:javascripts", ["javascripts"], -> browserSync.reload()
 gulp.task "watch:views", ["views"], -> browserSync.reload()

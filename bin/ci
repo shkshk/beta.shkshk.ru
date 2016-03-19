@@ -2,5 +2,5 @@
 
 set -e
 
-./node_modules/.bin/gulp build
-./node_modules/.bin/gulp test
+npm compile
+npm test
