@@ -1,1 +1,1 @@
-ci: "https://semaphoreapp.com/vast/beta-shkshk-ru/branches/%{branch}"
+ci: "https://semaphoreci.com/vast/beta-shkshk-ru/branches/%{branch}"
