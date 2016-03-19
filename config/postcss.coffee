@@ -1,4 +1,4 @@
-app_config = require "./application"
+appConfig = require "./application"
 
 autoprefixer = require "autoprefixer"
 postcssVars = require "postcss-simple-vars"
@@ -8,7 +8,7 @@ postcssMixins = require "postcss-mixins"
 postcssColors = require "postcss-color-function"
 
 module.exports = [
-  postcssImport(from: app_config.paths.main_stylesheet),
+  postcssImport(from: appConfig.paths.mainStylesheet),
   postcssMixins,
   postcssNested,
   postcssVars,
