@@ -1,6 +1,6 @@
-@import "modules/_header";
-@import "modules/_footer";
-@import "modules/_images";
-@import "modules/_order";
-@import "modules/_return";
-@import "modules/_forms";
+@import "_header";
+@import "_footer";
+@import "_images";
+@import "_order";
+@import "_return";
+@import "_forms";
