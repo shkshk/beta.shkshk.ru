@@ -3,7 +3,7 @@ gutil = require "gulp-util"
 plumber = require "gulp-plumber"
 streamify = require "gulp-streamify"
 
-app_config = require "../config/application"
+appConfig = require "../config/application"
 postprocessors = require "../config/postcss"
 
 production = -> process.env.NODE_ENV is "production"
@@ -13,62 +13,62 @@ postcss = require "gulp-postcss"
 CacheBuster = require "gulp-cachebust"
 cachebuster = new CacheBuster()
 
-css_minifier = if production() then require("gulp-csso") else gutil.noop
-js_minifier = if production() then -> streamify(require("gulp-uglify")()) else gutil.noop
+cssMinifier = if production() then require("gulp-csso") else gutil.noop
+jsMinifier = if production() then -> streamify(require("gulp-uglify")()) else gutil.noop
 
-assets_cachebuster = if production() then -> cachebuster.resources() else gutil.noop
-assets_references = if production() then -> cachebuster.references() else gutil.noop
+assetsCachebuster = if production() then -> cachebuster.resources() else gutil.noop
+assetsReferences = if production() then -> cachebuster.references() else gutil.noop
 
 browserify = require "browserify"
 source = require "vinyl-source-stream"
 connect = require "gulp-connect"
 
 bundler = browserify(
-  entries: ["./" + app_config.paths.main_javascript]
+  entries: ["./" + appConfig.paths.mainJavascript]
   extensions: [".coffee", ".js"]
   paths: ["./app/assets/javascripts"]
 )
 
 gulp.task "views", ["clean:views", "stylesheets", "javascripts"], ->
-  gulp.src(app_config.paths.views)
+  gulp.src(appConfig.paths.views)
     .pipe(plumber())
     .pipe(jade(pretty: true))
-    .pipe(assets_references())
-    .pipe(gulp.dest(app_config.buildpaths.root))
+    .pipe(assetsReferences())
+    .pipe(gulp.dest(appConfig.buildpaths.root))
     .pipe(connect.reload())
 
 gulp.task "stylesheets", ["clean:stylesheets"], ->
-  gulp.src(app_config.paths.main_stylesheet)
+  gulp.src(appConfig.paths.mainStylesheet)
     .pipe(plumber())
     .pipe(postcss(postprocessors))
-    .pipe(css_minifier())
-    .pipe(assets_cachebuster())
-    .pipe(gulp.dest(app_config.buildpaths.assets))
+    .pipe(cssMinifier())
+    .pipe(assetsCachebuster())
+    .pipe(gulp.dest(appConfig.buildpaths.assets))
     .pipe(connect.reload())
 
 gulp.task "javascripts", ["clean:javascripts"], ->
   bundler.bundle()
     .on("error", (err) -> gutil.log(err.message); @emit("end"))
     .pipe(source("application.js"))
-    .pipe(js_minifier())
-    .pipe(assets_cachebuster())
-    .pipe(gulp.dest(app_config.buildpaths.assets))
+    .pipe(jsMinifier())
+    .pipe(assetsCachebuster())
+    .pipe(gulp.dest(appConfig.buildpaths.assets))
     .pipe(connect.reload())
 
 gulp.task "images", ["clean:images"], ->
-  gulp.src(app_config.paths.images)
-    .pipe(gulp.dest(app_config.buildpaths.assets))
+  gulp.src(appConfig.paths.images)
+    .pipe(gulp.dest(appConfig.buildpaths.assets))
 
 gulp.task "build", ["views", "images"]
 
 gulp.task "serve", ["build"], ->
   connect.server(
-    root: app_config.buildpaths.root
+    root: appConfig.buildpaths.root
     livereload: true
-    port: app_config.development_port
+    port: appConfig.developmentPort
   )
-  gulp.watch(app_config.paths.views, ["views"])
-  gulp.watch(app_config.paths.javascripts, ["javascripts"])
-  gulp.watch(app_config.paths.stylesheets, ["stylesheets"])
-  gulp.watch(app_config.paths.images, ["images"])
+  gulp.watch(appConfig.paths.views, ["views"])
+  gulp.watch(appConfig.paths.javascripts, ["javascripts"])
+  gulp.watch(appConfig.paths.stylesheets, ["stylesheets"])
+  gulp.watch(appConfig.paths.images, ["images"])
 
