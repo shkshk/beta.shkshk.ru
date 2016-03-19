@@ -1,0 +1,11 @@
+.cover {
+  height: 95vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+
+  background: url("/assets/main-large.jpg") top center no-repeat;
+  background-size: cover;
+}
