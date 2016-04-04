@@ -8,9 +8,9 @@
   font-size: 80%;
   text-align: center;
 
-  &:after {
+  &:before {
     display: block;
-    margin-top: .5em;
+    margin-bottom: .5em;
     content: "❦";
     font-size: 1.25rem;
   }
