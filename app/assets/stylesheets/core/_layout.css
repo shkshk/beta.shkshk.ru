@@ -12,3 +12,35 @@
 .container {
   @mixin container;
 }
+
+.container--flex {
+  display: flex;
+}
+
+.container--bleed {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: $huge-spacing;
+}
+
+.container-main {
+  width: 50%;
+  padding-bottom: 20%;
+
+  @media $mobile {
+    padding-bottom: 0;
+    width: auto;
+  }
+}
+
+.container-aside {
+  position: absolute;
+  right: 0;
+  left: 50%;
+  top: 2.7rem;
+  bottom: 0;
+
+  @media $mobile {
+    position: static;
+  }
+}

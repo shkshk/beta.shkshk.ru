@@ -1,3 +1,24 @@
+.image {
+  margin-bottom: $paragraphs-spacing;
+  display: inline-block;
+}
+
+.image-caption {
+  display: inline-block;
+  box-sizing: border-box;
+  max-width: 33%;
+  padding-left: .5rem;
+  margin-top: -.5em;
+  vertical-align: top;
+  font-size: .8rem;
+  line-height: 1.3;
+}
+
+.image--with_right_caption {
+  max-width: 60%;
+  margin-bottom: .5rem;
+}
+
 .gallery {
   position: relative;
   margin: 0 0 $vertical-blocks-spacing;

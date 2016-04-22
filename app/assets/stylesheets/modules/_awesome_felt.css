@@ -1,0 +1,15 @@
+.awesome_felt {
+  min-height: 100vh;
+  padding: $vertical-blocks-spacing 0;
+  background: url(/assets/felt/felt-1-large.jpg) top center no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: $huge-spacing;
+}
+
+.awesome_felt .container {
+  background: #fff;
+  padding-bottom: $paragraphs-spacing;
+}
