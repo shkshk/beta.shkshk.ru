@@ -2,6 +2,7 @@ $helvetica: Helvetica Neue, TeXGyreHerosRegular, Helvetica, Arial, sans-serif;
 $serif: PT Serif, Georgia, Times New Roman, Times, serif;
 
 $global-radius: 4px;
+$global-header-height: 6rem;
 
 $text-color: rgba(0, 0, 0, .85);
 $light-text-color: #fcfcfc;
