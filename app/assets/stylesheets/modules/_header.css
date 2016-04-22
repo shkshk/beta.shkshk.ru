@@ -1,8 +1,7 @@
 .global_header {
   @mixin container;
 
-  padding-top: 6rem;
-  position: relative;
+  padding-top: $global-header-height;
 
   &-logo {
     position: absolute;

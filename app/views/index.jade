@@ -1,66 +1,64 @@
 extends ./layouts/application.jade
 
 block contents
-  p Шьем чехлы для пятых и шестых айфонов,
-    | которые не портят первозданную красоту телефона и защищают его от падений и царапин.
-    | Шьем вручную из натуральной кожи и <a href="/felt.html">100% фетра</a> толщиной в 3 миллиметра.
-    | Лаконичные и элегантные.
+  .cover
+    .cover-contents
+      h2.cover-title Чехол на&nbsp;айфон для тех, кто устал от&nbsp;пластика и&nbsp;силикона
 
-  .gallery.gallery--cover
-    a.fancybox(href="/assets/main-large.jpg")
-      img(src="/assets/main.jpg")
+  .cover-spacer
 
-  p.caption Мы любим простоту, поэтому в наших чехлах нет ни застежек, ни кнопок,
-    | ни веревочек, отрывающихся через неделю. Ничего лишнего.
+  div.container--bleed
+    .container
+      .container-main
+        h2 Защищает от&nbsp;царапин и&nbsp;падений
+        p Мы&nbsp;шьем чехлы из&nbsp;фетра толщиной в&nbsp;3&nbsp;миллиметра.
+          | В&nbsp;нем телефон неуязвим для ключей и&nbsp;мелочи в&nbsp;сумке или кармане.
+          | Кроме того, в&nbsp;нем нестрашно уронить телефон в&nbsp;машине или бросить его на&nbsp;стол.
 
-  .gallery.gallery--for_two
-    a.fancybox(href="/assets/clean/clean-large.jpg" rel="gallery-2")
-      img(src="/assets/clean/clean.jpg")
-    a.fancybox(href="/assets/clean/simple-large.jpg" rel="gallery-2")
-      img(src="/assets/clean/simple.jpg")
+        h2 Служит дольше чем&nbsp;телефон
+        p Мы&nbsp;любим простоту и&nbsp;надежность, поэтому в&nbsp;чехлах нет ни&nbsp;застежек, ни&nbsp;кнопок, ни&nbsp;веревочек, отрывающихся через неделю. Мы&nbsp;ценим качество и&nbsp;аккуратность, поэтому в&nbsp;чехлах нет торчащих ниток, а&nbsp;рисунок нанесен лазером: логотип не&nbsp;сотрется.
 
-  p.caption Мы ценим качество и аккуратность, поэтому в наших чехлах нет торчащих ниток,
-    | а рисунок нанесен лазером. Такой логотип не сотрется.
+      .container-aside
+        a.fancybox(href="/assets/clean/simple-large.jpg")
+          img.image(src="/assets/clean/simple-large.jpg")
+        a.fancybox(href="/assets/felt/used-2-large.jpg")
+          img.image.image--with_right_caption(src="/assets/felt/used-2-large.jpg")
+        .image-caption
+          | Чехол, которым пользовались год. Под низом&nbsp;&mdash; новый
 
-  .gallery.gallery--for_three
-    a.fancybox(href="/assets/quality/1-large.jpg" rel="gallery-3")
-      img(src="/assets/quality/1.jpg")
-    a.fancybox(href="/assets/quality/2-large.jpg" rel="gallery-3")
-      img(src="/assets/quality/2.jpg")
-    a.fancybox(href="/assets/quality/3-large.jpg" rel="gallery-3")
-      img(src="/assets/quality/3.jpg")
+  .awesome_felt
+    .container
+      h2 Уход и&nbsp;материалы
+      p Фетр бывает синтетическим, полушерстяным и&nbsp;натуральным.
+        | Синтетический фетр на&nbsp;100% состоит из&nbsp;акрила, полиэстера или вискозы.
+        | Полушерстяной фетр состоит из&nbsp;шерсти и&nbsp;синтетики. Натуральный фетр состоит только из&nbsp;шерсти.
 
-  p Мы не шьем чехлы на макбуки, айпады и самсунги. Но с радостью порекомендуем тех, кто шьет:
-    | <a href="http://www.hardgraft.com/">Hard Graft</a>,
-    | <a href="http://www.puurco.com/collections/frontpage">PuurCo</a>,
-    | <a href="http://www.rewrap.eu/sustainable-sleeves/">reWrap</a>.
+      p Полушерстяной и&nbsp;синтетический фетр просвечивает и&nbsp;дает отвратительный блеск.
+        | Он&nbsp;тонкий, ломкий, жесткий, и&nbsp;его неприятно держать в&nbsp;руках.
+        | Чехол из&nbsp;такого фетра выглядит дешево и&nbsp;рассыпается через месяц.
 
-  .order
-    h3 Заказать
+      p Мы&nbsp;шьем чехлы из&nbsp;натурального, на&nbsp;100% шерстяного фетра из&nbsp;Испании.
 
-    p 1000 рублей. Оплата — электронными деньгами или картой.
-      | После предоплаты мы бесплатно пришлем вам его почтой или в пункт самовывоза Boxberry.
-      | Посылку можно отслеживать через интернет.
+      p Натуральный фетр боится воды.
+        | Если фетр испачкался, дайте грязи высохнуть и&nbsp;удалите ее&nbsp;щеткой.
+        | Пожалуйста, не&nbsp;стирайте чехол и&nbsp;не&nbsp;плавайте с&nbsp;ним в&nbsp;море: он&nbsp;сядет и&nbsp;уменьшится.
 
-    p Упаковка хорошая: чехол придет в крафт-бумаге, изящно перевязанной бечевкой.
+      h2 Возврат
+      p Если чехол не&nbsp;понравится или не&nbsp;подойдет по&nbsp;размеру,
+        | <a href="mailto:vasiliy@shkshk.ru">напишите нам</a>.
+        | Мы&nbsp;бесплатно перешьем его и&nbsp;доставим почтой.
+        | Если вы&nbsp;откажетесь от&nbsp;обмена, вернём деньги после возврата посылки с&nbsp;чехлом.
 
-    p Укажите адрес электронной почты,
-      | чтобы мы с вами связались и уточнили удобный способ оплаты и доставки.
+  .container.buy
+    h2 Купить чехол «Шкшк&nbsp;007»
+    img(src="/assets/package-large.jpg")
 
-    form#order-form.order-form(accept-charset="UTF-8" action="https://formkeep.com/f/e86a0306057c" method="POST")
-      input(type="hidden" name="utf8" value="✓")
+    .buy-inner
+      .buy-main
+        p Чехол придет в&nbsp;отличной упаковке: в&nbsp;крафт-бумаге, изящно перевязанной бечевкой.
+        p Оплата — банковской картой.
+          | После оплаты бесплатно пришлем чехол почтой или в&nbsp;пункт самовывоза Boxberry.
 
-      .order-form_fields
-        fieldset
-          input#order-email(type="email" name="email" placeholder="Эл. почта" required="required")
-
-      .order-form_submits
-        input(type="submit", value="Заказать")
-
-  .return
-    h3 Возврат
-
-    p Если чехол не понравится или не подойдет, напишите <a href="mailto:vasiliy@shkshk.ru">нам</a>.
-      | Мы бесплатно перешьем его и доставим почтой за свой счет. Если вы откажетесь от обмена,
-      | мы вернём вам деньги после возврата посылки с чехлом.
-
+      .buy-cta
+        h3.buy-price 1500 рублей
+        iframe(frameborder="0" allowtransparency="true" scrolling="no" src="https://money.yandex.ru/embed/small.xml?account=41001497426879&quickpay=small&any-card-payment-type=on&button-text=02&button-size=l&button-color=orange&targets=%D0%A7%D0%B5%D1%85%D0%BE%D0%BB+%D0%BD%D0%B0+%D0%B0%D0%B9%D1%84%D0%BE%D0%BD+%C2%AB%D0%A8%D0%BA%D1%88%D0%BA+007%C2%BB&default-sum=1500&mail=on&successURL=https%3A%2F%2Fshkshk.ru%2Forders%2Fsuccess.html" width="196" height="54")

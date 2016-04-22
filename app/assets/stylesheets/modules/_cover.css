@@ -1,0 +1,23 @@
+.cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 95vh;
+  background: url(../assets/main-large.jpg) top right no-repeat;
+  background-size: cover;
+  z-index: -1;
+}
+
+.cover-spacer {
+  height: calc(95vh - $global-header-height);
+}
+
+.cover-contents {
+  @mixin container;
+}
+
+.cover-title {
+  color: #fff;
+  margin-top: 75vh;
+}

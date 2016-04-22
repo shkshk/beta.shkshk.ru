@@ -2,7 +2,7 @@
 html(lang="ru")
   head
     meta(charset="UTF-8")
-    title Замечательные чехлы для айфонов из кожи и фетра — Сшилакошка (котик не грустный, он сложный)
+    title Шкшк 007  — Сшилакошка (котик не грустный, он сложный)
     link(rel="stylesheet", href="/assets/application.css")
     link(rel="shortcut icon" type="image/png" href="/assets/favicon.png")
     meta(http-equiv="X-UA-Compatible" content="IE=edge,chrome=1")
@@ -11,25 +11,41 @@ html(lang="ru")
   body.layout--application
     - if (process.env.NODE_ENV == "production")
       script.
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        (function (d, w, c) {
+            (w[c] = w[c] || []).push(function() {
+                try {
+                    w.yaCounter36951465 = new Ya.Metrika({
+                        id:36951465,
+                        clickmap:true,
+                        trackLinks:true,
+                        accurateTrackBounce:true,
+                        webvisor:true
+                    });
+                } catch(e) { }
+            });
 
-        ga('create', 'UA-1522660-21', 'auto');
-        ga('send', 'pageview');
+            var n = d.getElementsByTagName("script")[0],
+                s = d.createElement("script"),
+                f = function () { n.parentNode.insertBefore(s, n); };
+            s.type = "text/javascript";
+            s.async = true;
+            s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+            if (w.opera == "[object Opera]") {
+                d.addEventListener("DOMContentLoaded", f, false);
+            } else { f(); }
+        })(document, window, "yandex_metrika_callbacks");
 
 
     header.global_header
       a.global_header-logo(href="/")
-        | Сшилакошка
+        | Шкшк&nbsp;007
       h2.global_header-title
         block page_title
-    div.container
+    div
       block contents
 
     footer.global_footer
-      | Мы всегда рады пообщаться.
-      | Если у вас остались вопросы, пишите нам по <a href="mailto:vasiliy@shkshk.ru">почте</a>.
+      | Если у вас остались вопросы, пишите: <a href="mailto:vasiliy@shkshk.ru">vasiliy@shkshk.ru</a>
 
     script(src="/assets/application.js")

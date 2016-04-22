@@ -1,5 +1,4 @@
 require("fancybox")($)
-OrderForm = require "shkshk/order_form"
 
 module.exports = class Application
   @run: ->
@@ -14,5 +13,3 @@ module.exports = class Application
       nextEffect: "none"
       prevEffect: "none"
     )
-
-    new OrderForm(el: "#order-form")

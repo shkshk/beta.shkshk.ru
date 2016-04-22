@@ -21,6 +21,7 @@ html {
 body {
   color: $text-color;
   background: $body-bg-color;
+  position: relative;
 }
 
 a {

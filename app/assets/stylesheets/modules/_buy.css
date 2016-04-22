@@ -1,0 +1,27 @@
+.buy-inner {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.buy-main {
+  flex: 2;
+
+  @media $tablet {
+    flex: initial;
+  }
+}
+
+.buy-cta {
+  flex: 1;
+  text-align: center;
+  padding: 0 0 0 $paragraphs-spacing;
+  align-self: flex-end;
+  margin-bottom: calc($paragraphs-spacing - 4px);
+  box-sizing: border-box;
+
+  @media $tablet {
+    flex: initial;
+    padding: 0;
+    margin: 0 auto;
+  }
+}

@@ -2,6 +2,7 @@ $helvetica: Helvetica Neue, TeXGyreHerosRegular, Helvetica, Arial, sans-serif;
 $serif: PT Serif, Georgia, Times New Roman, Times, serif;
 
 $global-radius: 4px;
+$global-header-height: 6rem;
 
 $text-color: rgba(0, 0, 0, .85);
 $light-text-color: #fcfcfc;
@@ -17,6 +18,7 @@ $stripe-color-blue: #15466f;
 
 $paragraphs-spacing: 1.2rem;
 $vertical-blocks-spacing: 3.6rem;
+$huge-spacing: 5rem;
 
 $tablet: (max-width: 768px);
 $ereader: (max-width: 600px);
