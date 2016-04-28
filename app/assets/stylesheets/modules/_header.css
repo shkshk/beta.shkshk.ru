@@ -16,7 +16,7 @@
     line-height: 57px;
     font-size: 80%;
 
-    &:visited {
+    &:link, &:visited {
       color: $text-color;
     }
   }
